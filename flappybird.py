@@ -1,7 +1,11 @@
-import pygame, sys, random
-
+import pygame
+import sys
+import random
+import os
 from pygame.constants import K_UP
 from pygame.display import update
+
+#pygame.image.load(os.path.join("images/bg1/", str(x) + ".png")).convert_alpha()
 
 def draw_floor():
     screen.blit(floor_surface,(floor_x_pos,750))
@@ -81,11 +85,9 @@ game_active = True
 score = 0
 high_score = 0
 
-bg_surface = pygame.image.load('assets/background-day.png').convert()
-bg_surface = pygame.transform.scale2x(bg_surface)
+bg_surface = pygame.transform.scale2x(pygame.image.load('assets/background-day.png').convert())
 
-floor_surface = pygame.image.load('assets/base.png').convert()
-floor_surface = pygame.transform.scale2x(floor_surface)
+floor_surface = pygame.transform.scale2x(pygame.image.load('assets/base.png').convert())
 floor_x_pos = 0
 
 bird_downflap = pygame.transform.scale2x(pygame.image.load('assets/redbird-downflap.png').convert_alpha())
@@ -99,8 +101,7 @@ bird_rect = bird_surface.get_rect(center = (100,450))
 BIRDFLAP = pygame.USEREVENT + 1
 pygame.time.set_timer(BIRDFLAP,200)
 
-pipe_surface = pygame.image.load('assets/pipe_green.png').convert()
-pipe_surface = pygame.transform.scale2x(pipe_surface)
+pipe_surface = pygame.transform.scale2x(pygame.image.load('assets/pipe-green.png').convert())
 pipe_list = []
 SPAWNPIPE = pygame.USEREVENT
 pygame.time.set_timer(SPAWNPIPE,1200)
